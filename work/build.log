@@ -1,0 +1,231 @@
+[2020-01-05 02:31:01] lb_build noauto
+[2020-01-05 02:31:02] lb_bootstrap 
+P: Setting up cleanup function
+[2020-01-05 02:31:02] lb_bootstrap_cache restore
+P: Restoring bootstrap stage from cache...
+W: skipping bootstrap_cache.restore, already done
+[2020-01-05 02:31:02] lb_bootstrap_copy 
+[2020-01-05 02:31:03] lb_bootstrap_cdebootstrap 
+[2020-01-05 02:31:03] lb_bootstrap_debootstrap 
+P: Begin bootstrapping system...
+[2020-01-05 02:31:03] lb_testroot 
+W: skipping bootstrap, already done
+[2020-01-05 02:31:04] lb_bootstrap_cache save
+P: Saving bootstrap stage to cache...
+W: skipping bootstrap_cache.save, already done
+P: Begin unmounting filesystems...
+P: Saving caches...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+[2020-01-05 02:31:06] lb_chroot 
+P: Setting up cleanup function
+[2020-01-05 02:31:07] lb_chroot_cache restore
+[2020-01-05 02:31:07] lb_chroot_devpts install
+[2020-01-05 02:31:07] lb_testroot 
+P: Begin mounting /dev/pts...
+[2020-01-05 02:31:08] lb_chroot_proc install
+[2020-01-05 02:31:08] lb_testroot 
+P: Begin mounting /proc...
+[2020-01-05 02:31:08] lb_chroot_selinuxfs install
+[2020-01-05 02:31:08] lb_testroot 
+[2020-01-05 02:31:09] lb_chroot_sysfs install
+[2020-01-05 02:31:09] lb_testroot 
+P: Begin mounting /sys...
+[2020-01-05 02:31:09] lb_chroot_debianchroot install
+P: Configuring file /etc/debian_chroot
+[2020-01-05 02:31:10] lb_chroot_dpkg install
+P: Configuring file /sbin/start-stop-daemon
+[2020-01-05 02:31:10] lb_chroot_tmpfs install
+[2020-01-05 02:31:10] lb_chroot_sysv-rc install
+P: Configuring file /usr/sbin/policy-rc.d
+W: skipping chroot_sysv-rc, already done
+[2020-01-05 02:31:11] lb_chroot_upstart install
+P: Configuring file /sbin/initctl
+W: skipping chroot_upstart, already done
+[2020-01-05 02:31:11] lb_chroot_hosts install
+P: Configuring file /etc/hosts
+W: skipping chroot_hosts, already done
+[2020-01-05 02:31:11] lb_chroot_resolv install
+P: Configuring file /etc/resolv.conf
+W: skipping chroot_resolv, already done
+[2020-01-05 02:31:12] lb_chroot_hostname install
+W: skipping chroot_hostname, already done
+[2020-01-05 02:31:12] lb_chroot_apt install
+P: Configuring file /etc/apt/apt.conf
+W: skipping chroot_apt, already done
+[2020-01-05 02:31:12] lb_chroot_archives chroot install
+P: Configuring file /etc/apt/sources.list
+W: skipping chroot_archives, already done
+[2020-01-05 02:31:13] lb_chroot_linux-image 
+W: skipping chroot_linux-image, already done
+[2020-01-05 02:31:13] lb_chroot_preseed 
+P: Begin executing local preseeds...
+[2020-01-05 02:31:13] lb_chroot_early_hooks 
+P: Begin executing early chroot hooks...
+[2020-01-05 02:31:14] lb_chroot_package-lists install
+P: Begin queueing installation of package lists (install pass)...
+[2020-01-05 02:31:14] lb_chroot_install-packages install
+P: Begin installing packages (install pass)...
+linux-headers-4.15.0-72 was already set to automatically installed.
+linux-headers-4.15.0-72-generic was already set to automatically installed.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+[2020-01-05 02:31:19] lb_chroot_package-lists live
+P: Begin queueing installation of package lists (live pass)...
+[2020-01-05 02:31:19] lb_chroot_install-packages live
+P: Begin installing packages (live pass)...
+[2020-01-05 02:31:19] lb_chroot_live-packages 
+W: skipping chroot_live-packages, already done
+[2020-01-05 02:31:20] lb_chroot_includes 
+P: Begin copying chroot includes...
+[2020-01-05 02:31:20] lb_chroot_hooks 
+P: Begin executing hooks...
+[2020-01-05 02:31:32] lb_chroot_hacks 
+P: Begin executing hacks...
+W: skipping chroot_hacks, already done
+[2020-01-05 02:31:33] lb_chroot_interactive 
+[2020-01-05 02:31:33] lb_chroot_archives chroot remove
+P: Deconfiguring file /etc/apt/sources.list
+[2020-01-05 02:31:33] lb_chroot_apt remove
+P: Deconfiguring file /etc/apt/apt.conf
+[2020-01-05 02:31:34] lb_chroot_hostname remove
+P: Deconfiguring file /etc/hostname
+P: Deconfiguring file /bin/hostname
+[2020-01-05 02:31:34] lb_chroot_resolv remove
+P: Deconfiguring file /etc/resolv.conf
+[2020-01-05 02:31:34] lb_chroot_hosts remove
+P: Deconfiguring file /etc/hosts
+[2020-01-05 02:31:35] lb_chroot_sysv-rc remove
+P: Deconfiguring file /usr/sbin/policy-rc.d
+[2020-01-05 02:31:35] lb_chroot_upstart remove
+P: Deconfiguring file /sbin/initctl
+[2020-01-05 02:31:35] lb_chroot_tmpfs remove
+[2020-01-05 02:31:36] lb_chroot_dpkg remove
+P: Deconfiguring file /sbin/start-stop-daemon
+[2020-01-05 02:31:36] lb_chroot_debianchroot remove
+P: Deconfiguring file /etc/debian_chroot
+[2020-01-05 02:31:36] lb_chroot_sysfs remove
+[2020-01-05 02:31:36] lb_testroot 
+P: Begin unmounting /sys...
+[2020-01-05 02:31:37] lb_chroot_selinuxfs remove
+[2020-01-05 02:31:37] lb_testroot 
+P: Begin unmounting /selinux...
+[2020-01-05 02:31:38] lb_chroot_proc remove
+[2020-01-05 02:31:38] lb_testroot 
+P: Begin unmounting /proc...
+[2020-01-05 02:31:38] lb_chroot_devpts remove
+[2020-01-05 02:31:38] lb_testroot 
+P: Begin unmounting /dev/pts...
+[2020-01-05 02:31:39] lb_chroot_cache save
+P: Begin unmounting filesystems...
+P: Saving caches...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+[2020-01-05 02:31:40] lb_binary 
+P: Setting up cleanup function
+[2020-01-05 02:31:40] lb_binary_chroot 
+P: Begin copying chroot...
+W: skipping binary_chroot, already done
+[2020-01-05 02:31:41] lb_chroot_devpts install
+[2020-01-05 02:31:41] lb_testroot 
+P: Begin mounting /dev/pts...
+[2020-01-05 02:31:41] lb_chroot_proc install
+[2020-01-05 02:31:41] lb_testroot 
+P: Begin mounting /proc...
+[2020-01-05 02:31:42] lb_chroot_selinuxfs install
+[2020-01-05 02:31:42] lb_testroot 
+[2020-01-05 02:31:42] lb_chroot_sysfs install
+[2020-01-05 02:31:43] lb_testroot 
+P: Begin mounting /sys...
+[2020-01-05 02:31:43] lb_chroot_hosts install
+P: Configuring file /etc/hosts
+[2020-01-05 02:31:43] lb_chroot_resolv install
+P: Configuring file /etc/resolv.conf
+[2020-01-05 02:31:44] lb_chroot_hostname install
+P: Configuring file /etc/hostname
+P: Configuring file /bin/hostname
+[2020-01-05 02:31:44] lb_chroot_sysv-rc install
+P: Configuring file /usr/sbin/policy-rc.d
+[2020-01-05 02:31:44] lb_chroot_upstart install
+P: Configuring file /sbin/initctl
+[2020-01-05 02:31:45] lb_chroot_apt install-binary
+P: Configuring file /etc/apt/apt.conf
+[2020-01-05 02:31:45] lb_chroot_archives chroot install
+P: Configuring file /etc/apt/sources.list
+Get:1 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Hit:2 http://archive.ubuntu.com/ubuntu bionic InRelease
+Get:3 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Fetched 177 kB in 2s (89.9 kB/s)
+Reading package lists...
+W: --force-yes is deprecated, use one of the options starting with --allow instead.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ubuntu-keyring is already the newest version (2018.09.18.1~18.04.0).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+W: --force-yes is deprecated, use one of the options starting with --allow instead.
+Get:1 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Hit:2 http://archive.ubuntu.com/ubuntu bionic InRelease
+Get:3 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Fetched 177 kB in 2s (107 kB/s)
+Reading package lists...
+W: --force-yes is deprecated, use one of the options starting with --allow instead.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+W: --force-yes is deprecated, use one of the options starting with --allow instead.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+W: --force-yes is deprecated, use one of the options starting with --allow instead.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+[2020-01-05 02:32:08] lb_binary_rootfs 
+P: Begin building root filesystem image...
+W: skipping binary_rootfs, already done
+[2020-01-05 02:32:08] lb_binary_manifest 
+P: Begin creating manifest...
+W: skipping binary_manifest, already done
+[2020-01-05 02:32:08] lb_binary_package-lists 
+P: Begin installing local package lists...
+[2020-01-05 02:32:09] lb_binary_linux-image 
+P: Begin install linux-image...
+W: skipping binary_linux-image, already done
+[2020-01-05 02:32:09] lb_binary_debian-installer 
+[2020-01-05 02:32:09] lb_binary_memtest 
+P: Begin installing memtest...
+W: skipping binary_memtest, already done
+[2020-01-05 02:32:09] lb_binary_grub 
+[2020-01-05 02:32:10] lb_binary_grub2 
+[2020-01-05 02:32:10] lb_binary_syslinux 
+P: Begin installing syslinux...
+W: skipping binary_syslinux, already done
+[2020-01-05 02:32:10] lb_binary_yaboot 
+[2020-01-05 02:32:11] lb_binary_silo 
+[2020-01-05 02:32:11] lb_binary_disk 
+P: Begin installing disk information...
+W: skipping binary_disk, already done
+[2020-01-05 02:32:11] lb_binary_win32-loader 
+[2020-01-05 02:32:11] lb_binary_includes 
+P: Begin copying binary includes...
+[2020-01-05 02:32:12] lb_binary_hooks 
+P: Begin executing hooks...
+[2020-01-05 02:32:12] lb_binary_checksums 
+W: skipping binary_checksums, already done
+[2020-01-05 02:32:12] lb_binary_iso 
+P: Begin building binary iso image...
+mv: 'binary' を stat できません: そのようなファイルやディレクトリはありません
+P: Begin unmounting filesystems...
+P: Saving caches...
+Reading package lists...
+Building dependency tree...
+Reading state information...

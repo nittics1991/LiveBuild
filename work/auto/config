@@ -1,0 +1,10 @@
+#!/bin/sh
+
+lb config noauto \
+    --apt-options "-y --force-yes" \
+    --apt-secure false \
+    -a "amd64" \
+    -d "bionic" \
+    --archive-areas "main restricted universe" \
+    --syslinux-theme "ubuntu" \
+	"${@}"

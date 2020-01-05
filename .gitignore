@@ -1,0 +1,6 @@
+work/binary
+work/cache
+work/chroot
+*.iso
+vm/LiveBuild/Logs
+
