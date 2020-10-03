@@ -1,12 +1,8 @@
 # config/binary - options for live-build(7), binary stage
 
 # $LB_BINARY_FILESYSTEM: set image filesystem
-# (Default: fat16)
-LB_BINARY_FILESYSTEM="fat16"
-
-# $LB_BINARY_IMAGES: set image type
-# (Default: iso-hybrid)
-LB_BINARY_IMAGES="iso-hybrid"
+# (Default: fat32)
+LB_BINARY_FILESYSTEM="fat32"
 
 # $LB_APT_INDICES: set apt/aptitude generic indices
 # (Default: true)
@@ -14,27 +10,27 @@ LB_APT_INDICES="true"
 
 # $LB_BOOTAPPEND_LIVE: set boot parameters
 # (Default: empty)
-LB_BOOTAPPEND_LIVE=""
+LB_BOOTAPPEND_LIVE="         boot=live         live-config.locales=ja_JP.UTF-8         live-config.timezone=Asia/Tokyo         live-config.keyboard-model=jp106         live-config.keyboard-layouts=jp         "
 
 # $LB_BOOTAPPEND_INSTALL: set boot parameters
 # (Default: empty)
 LB_BOOTAPPEND_INSTALL=""
 
-# $LB_BOOTAPPEND_FAILSAFE: set boot parameters
+# $LB_BOOTAPPEND_LIVE_FAILSAFE: set boot parameters
 # (Default: empty)
-LB_BOOTAPPEND_FAILSAFE="memtest noapic noapm nodma nomce nolapic nomodeset nosmp nosplash vga=normal"
+LB_BOOTAPPEND_LIVE_FAILSAFE="boot=live components memtest noapic noapm nodma nomce nolapic nomodeset nosmp nosplash vga=normal"
 
-# $LB_BOOTLOADER: set bootloader
-# (Default: syslinux)
-LB_BOOTLOADER="syslinux"
+# $LB_BOOTLOADERS: set bootloaders
+# (Default: syslinux,grub-efi)
+LB_BOOTLOADERS="syslinux,grub-efi"
 
 # $LB_CHECKSUMS: set checksums
-# (Default: sha256)
-LB_CHECKSUMS="sha256"
+# (Default: md5)
+LB_CHECKSUMS="md5"
 
 # $LB_COMPRESSION: set compression
-# (Default: xz)
-LB_COMPRESSION="xz"
+# (Default: none)
+LB_COMPRESSION="none"
 
 # $LB_ZSYNC: set zsync
 # (Default: true)
@@ -51,55 +47,47 @@ LB_DEBIAN_INSTALLER="false"
 
 # $LB_DEBIAN_INSTALLER_DISTRIBUTION: set debian-installer suite
 # (Default: empty)
-LB_DEBIAN_INSTALLER_DISTRIBUTION="bionic"
+LB_DEBIAN_INSTALLER_DISTRIBUTION="bullseye"
 
 # $LB_DEBIAN_INSTALLER_PRESEEDFILE: set debian-installer preseed filename/url
 # (Default: )
 LB_DEBIAN_INSTALLER_PRESEEDFILE=""
 
 # $LB_DEBIAN_INSTALLER_GUI: toggle use of GUI debian-installer
-# (Default: false)
-LB_DEBIAN_INSTALLER_GUI="false"
+# (Default: true)
+LB_DEBIAN_INSTALLER_GUI="true"
 
 # $LB_GRUB_SPLASH: set custom grub splash
 # (Default: empty)
 LB_GRUB_SPLASH=""
 
 # $LB_HDD_LABEL: set hdd label
-# (Default: UBUNTU)
-LB_HDD_LABEL="UBUNTU"
+# (Default: DEBIAN_LIVE)
+LB_HDD_LABEL="DEBIAN_LIVE"
 
 # $LB_HDD_SIZE: set hdd filesystem size
-# (Default: 10000)
-LB_HDD_SIZE="10000"
+# (Default: auto)
+LB_HDD_SIZE="auto"
+
+# $LB_HDD_PARTITION_START: set start of partition for the hdd target for BIOSes that expect a specific boot partition start (e.g. "63s"). If empty, use optimal layout.
+# (Default: )
+LB_HDD_PARTITION_START=""
 
 # $LB_ISO_APPLICATION: set iso author
-# (Default: Ubuntu Live)
-LB_ISO_APPLICATION="Ubuntu Live"
+# (Default: Debian Live)
+LB_ISO_APPLICATION="Debian Live"
 
 # $LB_ISO_PREPARER: set iso preparer
-# (Default: live-build $VERSION; http://packages.qa.debian.org/live-build)
-LB_ISO_PREPARER="live-build $VERSION; http://packages.qa.debian.org/live-build"
+# (Default: live-build $VERSION; https://salsa.debian.org/live-team/live-build)
+LB_ISO_PREPARER="live-build $VERSION; https://salsa.debian.org/live-team/live-build"
 
 # $LB_ISO_PUBLISHER: set iso publisher
-# (Default: Debian Live project; http://live.debian.net/; debian-live@lists.debian.org)
-LB_ISO_PUBLISHER="Debian Live project; http://live.debian.net/; debian-live@lists.debian.org"
+# (Default: Live Systems project; https://wiki.debian.org/DebianLive; debian-live@lists.debian.org)
+LB_ISO_PUBLISHER="Live Systems project; https://wiki.debian.org/DebianLive; debian-live@lists.debian.org"
 
 # $LB_ISO_VOLUME: set iso volume (max 32 chars)
-# (Default: Ubuntu bionic $(date +%Y%m%d-%H:%M))
-LB_ISO_VOLUME="Ubuntu bionic $(date +%Y%m%d-%H:%M)"
-
-# $LB_EXT_BLOCKSIZE: set EXT block size
-# (Default: unset)
-LB_EXT_BLOCKSIZE=""
-
-# $LB_EXT_RESIZEBLOCKS: set EXT resize parameter
-# (Default: unset)
-LB_EXT_RESIZEBLOCKS=""
-
-# $LB_EXT_FUDGEFACTOR: set extra size of EXT images (in %)
-# (Default: unset)
-LB_EXT_FUDGEFACTOR=""
+# (Default: DebianLive)
+LB_ISO_VOLUME="DebianLive"
 
 # $LB_JFFS2_ERASEBLOCK: set jffs2 eraseblock size
 # (Default: unset)
@@ -109,9 +97,13 @@ LB_JFFS2_ERASEBLOCK=""
 # (Default: memtest86+)
 LB_MEMTEST="memtest86+"
 
+# $LB_LOADLIN: set loadlin
+# (Default: false)
+LB_LOADLIN="false"
+
 # $LB_WIN32_LOADER: set win32-loader
-# (Default: )
-LB_WIN32_LOADER=""
+# (Default: false)
+LB_WIN32_LOADER="false"
 
 # $LB_NET_ROOT_FILESYSTEM: set netboot filesystem
 # (Default: nfs)
@@ -122,8 +114,8 @@ LB_NET_ROOT_FILESYSTEM="nfs"
 LB_NET_ROOT_MOUNTOPTIONS=""
 
 # $LB_NET_ROOT_PATH: set netboot server directory
-# (Default: /srv/ubuntu-live)
-LB_NET_ROOT_PATH="/srv/ubuntu-live"
+# (Default: /srv/debian-live)
+LB_NET_ROOT_PATH="/srv/debian-live"
 
 # $LB_NET_ROOT_SERVER: set netboot server address
 # (Default: 192.168.1.1)
@@ -149,13 +141,21 @@ LB_NET_COW_SERVER=""
 # (Default: true)
 LB_NET_TARBALL="true"
 
-# $LB_FIRMWARE_BINARY: include firmware packages in debian-installer
+# $LB_ONIE: set onie
 # (Default: false)
-LB_FIRMWARE_BINARY="false"
+LB_ONIE="false"
+
+# $LB_ONIE_KERNEL_CMDLINE: set onie additional kernel cmdline options
+# (Default: )
+LB_ONIE_KERNEL_CMDLINE=""
+
+# $LB_FIRMWARE_BINARY: include firmware packages in debian-installer
+# (Default: true)
+LB_FIRMWARE_BINARY="true"
 
 # $LB_FIRMWARE_CHROOT: include firmware packages in debian-installer
-# (Default: false)
-LB_FIRMWARE_CHROOT="false"
+# (Default: true)
+LB_FIRMWARE_CHROOT="true"
 
 # $LB_SWAP_FILE_PATH: set swap file path
 # (Default: )
@@ -165,6 +165,6 @@ LB_SWAP_FILE_PATH=""
 # (Default: 512)
 LB_SWAP_FILE_SIZE="512"
 
-# $LB_SYSLINUX_THEME: set syslinux theme package
-# (Default: ubuntu)
-LB_SYSLINUX_THEME="ubuntu"
+# $LB_UEFI_SECURE_BOOT: enable/disable UEFI secure boot
+# (Default: auto)
+LB_UEFI_SECURE_BOOT="auto"

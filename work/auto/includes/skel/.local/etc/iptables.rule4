@@ -1,0 +1,36 @@
+*filter
+
+# ループバックは許可する。
+# ループバック以外の127.0.0.0/8への接続は拒否する。
+-A INPUT -i lo -j ACCEPT
+-A INPUT ! -i lo -d 127.0.0.0/8 -j REJECT
+
+# 確立済の外部から内部への接続を許可する
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# 内部から外部への接続はすべて許可する
+-A OUTPUT -j ACCEPT
+
+# 外部から内部へのHTTP(80)とHTTPS(443)の接続を許可する
+
+#-A INPUT -p tcp --dport 80 -j ACCEPT
+#-A INPUT -p tcp --dport 443 -j ACCEPT
+
+# 外部から内部へのSSHの接続を許可する
+# ポート番号は、/etc/ssh/sshd_config で設定したものと同じにする
+#-A INPUT -p tcp -m state --state NEW --dport 1234 -j ACCEPT
+
+
+# 外部から内部へのpingの接続を許可する
+#-A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
+
+# log iptables denied calls (access via 'dmesg' command)
+-A INPUT -m limit --limit 5/min -j LOG --log-prefix "iptables denied: " --log-level 7
+
+# その他の接続を拒否する
+-A INPUT -j REJECT
+-A FORWARD -j REJECT
+
+
+COMMIT
+

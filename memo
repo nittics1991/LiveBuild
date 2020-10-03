@@ -1,0 +1,30 @@
+201001
+    .xsessionrc修正 <= .xsessionrc-errorの内容を対策する
+
+
+#####################
+
+シャットダウン
+    A stop job is running for User Manager for UID 1000 
+
+syslinux
+    起動時beepなし
+
+kazam
+    音声がだめ
+    
+manpages
+    分類別一覧がほしい
+    http://www.itsenka.com/contents/development/unix-linux/
+    https://qiita.com/dondonsmi/items/b24ebffaca412acb83d3
+
+keyboard
+    FunkKeyの変更
+    
+追加
+    gnome-system-log=>manual
+    
+clamd
+    .xsessionrc修正
+        crontab -l |crontab - |wc -l
+        

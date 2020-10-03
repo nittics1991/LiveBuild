@@ -1,0 +1,11 @@
+#!/bin/bash
+
+URL=${1/https:\/\/www\.google\.co\.jp\/url\?q=/}
+URL=${URL/https:\/\/www\.google\.com\/url\?q=/}
+URL2=${URL/&sa=*/}
+
+echo ----------------------------------------
+echo "$URL2"
+
+firefox "$URL2"
+

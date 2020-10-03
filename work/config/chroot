@@ -5,16 +5,8 @@
 LB_CHROOT_FILESYSTEM="squashfs"
 
 # $LB_UNION_FILESYSTEM: set union filesystem
-# (Default: aufs)
-LB_UNION_FILESYSTEM="aufs"
-
-# $LB_EXPOSED_ROOT: expose root as read only
-# (Default: false)
-LB_EXPOSED_ROOT="false"
-
-# $LB_HOOKS: set hook commands
-# (Default: empty)
-LB_HOOKS=""
+# (Default: overlay)
+LB_UNION_FILESYSTEM="overlay"
 
 # $LB_INTERACTIVE: set interactive build
 # (Default: false)
@@ -22,23 +14,31 @@ LB_INTERACTIVE="false"
 
 # $LB_KEYRING_PACKAGES: set keyring packages
 # (Default: empty)
-LB_KEYRING_PACKAGES="ubuntu-keyring"
+LB_KEYRING_PACKAGES="debian-archive-keyring"
 
 # $LB_LINUX_FLAVOURS: set kernel flavour to use
+# This is kept for backwards compatibility
 # (Default: autodetected)
-LB_LINUX_FLAVOURS="generic"
+if [ -n " amd64" ]
+then
+	LB_LINUX_FLAVOURS_WITH_ARCH=" amd64"
+fi
+
+# $LB_LINUX_FLAVOURS_WITH_ARCH: set kernel flavour to use (with arch)
+# (Default: autodetected)
+LB_LINUX_FLAVOURS_WITH_ARCH="amd64"
 
 # $LB_LINUX_PACKAGES: set kernel packages to use
 # (Default: autodetected)
-LB_LINUX_PACKAGES="linux"
+LB_LINUX_PACKAGES="linux-image"
 
 # $LB_SECURITY: enable security updates
-# (Default: true)
-LB_SECURITY="true"
+# (Default: false)
+LB_SECURITY="false"
 
-# $LB_VOLATILE: enable volatile updates
+# $LB_UPDATES: enable updates updates
 # (Default: true)
-LB_VOLATILE="true"
+LB_UPDATES="true"
 
 # $LB_BACKPORTS: enable backports updates
 # (Default: false)
