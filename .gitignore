@@ -12,4 +12,5 @@ work/cache/
 work/chroot/
 work/config/
 work/local/
-
+work/*.files
+work/*.zsync

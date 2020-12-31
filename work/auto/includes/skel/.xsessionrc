@@ -15,7 +15,7 @@ xinput list |grep -i touchpad \
     |xargs xinput disable
 
 #uim-toolbar
-if [[ $(ps axo pid,cmd |grep -E [u]im.+systray |wc -l) = 0 ]] ; then
+if [ $(ps axo pid,cmd |grep -E [u]im.+systray |wc -l) = 0 ] ; then
     nohup uim-toolbar-gtk3-systray &
 fi
 
@@ -36,7 +36,7 @@ if [ $(ps axo pid,cmd |grep -E [s]watch |wc -l) = 0 ] ; then
 fi
 
 #cron/apt update
-if [[ $(crontab -l | crontab - |wc -l) = 0 ]] ; then
+if [ $(crontab -l | crontab - |wc -l) = 0 ] ; then
     crontab ~/.crontabrc
     nohup nice -n 19 sudo apt update > /dev/null 2>&1 &
 fi

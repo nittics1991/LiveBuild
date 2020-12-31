@@ -5,17 +5,36 @@
     `sudo mount -o remount,dev /dev/sda`
 
 ##auto初期化
+    新規設計の場合に初回実施
     `cp usr/share/doc/live-build/examples/auto ./work/auto`
+
+##live build
+    base dir(./work)にて実行
+    `sudo lb clean --all`
+    `sudo lb clean --cache`
+    `sudo lb clean --config`
+    `sudo lb config`
+    `sudo lb build`
+    base dirにISOファイルが出来れば作成終了
 
 ##USB ISO write
     USBの全データを消すことになるので注意
     `sudo apt install xorriso`
-    lsblkでUSBデバイス確認
-    `xorriso -as cdrecord -v dev=/dev/sdb blank=as_needed img.hybrid.iso`
+    lsblkでUSBデバイス確認の事
+    `sudo xorriso -as cdrecord -v dev=stdio:/dev/sdb blank=as_needed img.hybrid.iso`
 
 ##USB ISO write2
     USBの全データを消すことになるので注意
     `dd bs=4M if=AAA.iso of=/dev/sdc status=progress && sync ;`
+
+##USB ISO write2
+    USBの全データを消すことになるので注意
+    `sudo apt install ddrescue`
+    sudo ddrescue ubuntu-20.04-beta-desktop-amd64.iso /dev/sdb --force -D
+
+##parted
+    unitで単位をMiBにすると扱いやすい
+    全パーテーションを削除する場合、ラベルを作り直す mklabel gpt
 
 ##virtualbox準備
     sidは未対応 xubuntu usbで
@@ -38,6 +57,53 @@
 
 ##git repository
     LiveBuild -b test
+
+##追加情報
+
+###Isohybridについて
+    Debian Liveで作成される標準isohybridは、gptパーテーションをappleで作る模様
+    Apple Partition Mapは、全てのエリアをマップする
+    xorriso/ddで作成するbootable USBはパーテーションを区切れない('20-12-30)
+    partedで追加エリアが作れない理由として、これが原因と思われる
+    
+    Apple Partition Map
+    <https://en.wikipedia.org/wiki/Apple_Partition_Map>
+    
+    
+###動作確認用xubuntu USBについて
+
+###USB作成
+    xubuntuの最新をDL
+    USBを接続し、lsblkでデバイス確認
+    USBがマウントされた場合、umountする
+    USBを全消去
+        sudo parted /dev/sdc mklabel gpt
+    USBにISOを書き込み
+        xorriso/dd
+    
+###virtualbox起動まで
+    作成したxutuntu USBで起動
+        boot menu 1 without installで起動
+        checksumで起動に時間がかかる
+        英語OSで起動する
+        languageパッケージはメモリ不足?でインストールできない
+    vittualboxインストール
+        sudo apt install -y virtualbox準備
+        sudo modprobe vboxdrv
+    virtualbox起動
+        作業エリアを設定
+            /media/user/hdd/debian/vm/xxxx
+        言語を日本語に切り替え
+        既存のファイルから起動
+            デバイスCDをテストするDebianLive.imgを選択
+            LiveCDのチェックを入れる
+        CPU/memoryなど問題ないことを確認して起動する
+
+
+##関連dir
+    /usr/lib/live/
+    /usr/share/live/build.sh　がbuildエントリーポイント?
+        ./build/buildが続く?
 
 ##参考資料
     debian live-build マニュアル
@@ -86,3 +152,9 @@
     VirtualBox Mania
     <https://vboxmania.net/>
     
+    Quita partedでディスクを初期化
+    <https://qiita.com/propella/items/a085ec43fd59841da9d0>
+    
+
+
+

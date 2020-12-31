@@ -66,7 +66,8 @@ create_scan_log
 #sudo freshclam || throw "$?" "failure freshclam"
 sudo freshclam
 
-sudo clamscan -r -l "$LOG_FILE" "$1"
+#sudo clamscan -r -l "$LOG_FILE" "$1"
+sudo clamdscan -l "$LOG_FILE" "$1"
 
 if [[ "$?" = 1 ]] ; then
     notify $?

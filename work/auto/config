@@ -66,6 +66,7 @@ echo " \
     iftop \
     iproute2 \
     kazam \
+    lynx \
     menulibre \
     net-tools \
     numlockx \

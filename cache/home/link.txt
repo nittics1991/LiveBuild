@@ -1,0 +1,119 @@
+
+コロナ
+https://uub.jp/cvd/
+
+
+
+--------------------------------------------------------------
+#将来設計
+
+厚生省　医療費等データベース 基礎資料
+https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/iryouhoken/database/zenpan/kiso.html
+
+
+
+--------------------------------------------------------------
+#植物
+
+
+みかん
+    みかんな図鑑 特徴
+        https://www.ito-noen.com/dictionary/mikan/%E3%81%BF%E3%81%8B%E3%82%93/
+
+さつまいも
+    サツマイモの苗づくりと定植の仕方
+    http://wizardyuuyuu.shikisokuzekuu.net/SweetPotato/SweetPotato.htm
+    
+    https://www.pref.aichi.jp/byogaichu/tebiki/2sakumotubetu/3yasai/2-3(31).pdf
+    https://www.jrt.gr.jp/spmini/spmini_gijutu/
+
+果樹栽培
+    山口県栽培技術
+    https://www.pref.yamaguchi.lg.jp/cms/a17300/gijutukeiei/kaju.html
+
+
+樹木
+    葉と枝による樹木検索図鑑
+    https://elm3.web.fc2.com/index.html
+
+
+--------------------------------------------------------------
+#自然
+
+地質
+    アーバン　クボタ　
+        https://www.kubota.co.jp/siryou/pr/urban/pdf/
+
+
+--------------------------------------------------------------
+#DDD
+
+DDD　松岡
+https://little-hands.hatenablog.com/
+
+DDD　松岡スライド
+https://www.slideshare.net/koichiromatsuoka/ooc-2020-matsuoka
+
+DDD Hexagonal Architecture
+https://fideloper.com/hexagonal-architecture
+
+DDD関係
+https://docs.microsoft.com/ja-jp/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/
+
+
+--------------------------------------------------------------
+#boot CD
+
+マルチブータブルCD/DVD製作法
+http://uiuicy.cs.land.to/bootcd/index.html
+
+ISO9660
+https://ja.wikipedia.org/wiki/ISO_9660
+http://e-words.jp/w/ISO_9660.html
+http://e-words.jp/w/%E3%83%9E%E3%83%AB%E3%83%81%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3.html
+
+xorrsio
+https://www.carta.tech/man-pages/man1/xorrecord.1.html
+https://gihyo.jp/lifestyle/serial/01/ganshiki-soushi/0091
+
+--------------------------------------------------------------
+#bash
+
+UEC - UNIXを深く理解し、シェルプログラミングを極めるコミュニティサイト
+https://uec.usp-lab.com/TOP/CGI/TOP.CGI
+
+--------------------------------------------------------------
+#X11 キーマップ
+
+xmodmap Tutorial
+http://xahlee.info/linux/linux_xmodmap_tutorial.html
+
+Quitaキーバインドの変更 Xmodmapの基本的な設定方法
+https://qiita.com/macinjoke/items/746c0c0adb74cfdeb9e7
+
+modifier key (修飾キー )とは
+http://e-words.jp/w/%E4%BF%AE%E9%A3%BE%E3%82%AD%E3%83%BC.html
+
+super key(スーパーキー)
+https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%82%AD%E3%83%BC_(%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89)
+
+Fnキー
+https://ja.wikipedia.org/wiki/Fn%E3%82%AD%E3%83%BC
+
+HP キーボード意味
+https://support.hp.com/jp-ja/document/c03952627
+
+
+KubuntuLaptopKeycodes Keycode/hal events for laptop keys
+https://wiki.ubuntu.com/KubuntuLaptopKeycodes
+
+
+Fnキー入替え stackexchange
+https://unix.stackexchange.com/questions/107147/xmodmap-for-key-combination-how-to-toggle-the-fn-behavior
+
+--------------------------------------------------------------
+#あそび
+
+漫画
+https://mangahua.com/genres
+

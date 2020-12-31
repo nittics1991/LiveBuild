@@ -113,3 +113,5 @@ if ! shopt -oq posix; then
 fi
 
 export PS1="\W>"
+export WWW_HOME=https://duckduckgo.com/
+export LYNX_CFG=~/.config/lynx/lynx.cfg
