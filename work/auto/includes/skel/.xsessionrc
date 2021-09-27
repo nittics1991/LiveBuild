@@ -1,0 +1,45 @@
+
+#exec .profile
+if [ -f "$HOME/.profile" ] ; then
+    . "$HOME/.profile"
+fi
+
+#uim-toolbar
+if [ $(ps axo pid,cmd |grep -E [u]im.+systray |wc -l) = 0 ] ; then
+    nohup uim-toolbar-gtk3-systray &
+fi
+
+#disable touchpad
+xinput list |grep -i touchpad \
+    |awk '{split($6, ar, /=/); print ar[2];}' \
+    |xargs xinput disable
+
+#uim-toolbar
+if [ $(ps axo pid,cmd |grep -E [u]im.+systray |wc -l) = 0 ] ; then
+    nohup uim-toolbar-gtk3-systray &
+fi
+
+#swatch
+if [ $(ps axo pid,cmd |grep -E [s]watch |wc -l) = 0 ] ; then
+    #syslog
+    sudo swatchdog \
+        -c ~/.local/etc/swatch.d/syslog.conf \
+        -t /var/log/syslog \
+        --daemon
+    
+    #xsession
+    sudo swatchdog \
+        -c ~/.local/etc/swatch.d/xsession.conf \
+        -t ~/.xsession-errors \
+        --daemon
+    
+fi
+
+#cron/apt update
+if [ $(crontab -l | crontab - |wc -l) = 0 ] ; then
+    crontab ~/.crontabrc
+    nohup nice -n 19 sudo apt update > /dev/null 2>&1 &
+fi
+
+#hdd stop
+~/bin/hdd_stop.sh

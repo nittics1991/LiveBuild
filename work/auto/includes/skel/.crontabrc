@@ -1,0 +1,5 @@
+
+*/10 * * * * $HOME/bin/hdd_stop.sh
+#5 7 * * * $HOME/bin/clamav-scan.sh /media/user/hdd
+#55 11 * * * $HOME/bin/clamav-scan.sh $HOME
+#5 18 * * * $HOME/bin/clamav-scan.sh $HOME

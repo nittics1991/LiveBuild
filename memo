@@ -1,0 +1,58 @@
+
+#####################
+210926
+    USB install
+    debian 12 bookworm testing 作成
+    ISO のvboxでのtest OK
+
+    次回改造項目
+        html2text削除 追加configより除去する
+
+
+
+
+
+
+#####################
+
+210925
+    USB sony install
+    debian 11 bullseye stable 作成
+    virtualbox install 6.1 可能
+
+#####################
+
+201231
+    lb sourceでエラーストップする
+        pa_context_connect() 接続エラー
+    新規・継続で実行しても同じ
+    lb source 実行前にISOを作成するため、ISOは出来ていた
+        ISOサイズが201001より小さいが・・・
+    
+#####################
+次回改造項目
+    auto/config
+        anthyとmozc両方installされている場合,anthyをpurge
+
+    lyn.sh=>ly.shにファイル名変更
+    
+    auto/config
+        html2text　パッケージ追加
+
+    clamdscanインストールされていない
+    
+    terminal 貼り付け時メッセージボックス非表示
+    
+    firefox addon useragent等更新
+
+
+
+#####################
+改善したい項目
+
+シャットダウン
+    A stop job is running for User Manager for UID 1000 
+
+syslinux
+    起動時beepなし
+        

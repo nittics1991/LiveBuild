@@ -1,0 +1,169 @@
+#!/bin/sh
+
+#testing repositry securityが現在無効
+lb config noauto \
+    --apt-options "-y --force-yes" \
+    --apt-secure false \
+    -a "amd64" \
+    -d "bullseye" \
+    --memtest "memtest86+" \
+    -m "http://ftp.jp.debian.org/debian" \
+    --mode "debian" \
+    --archive-areas "main contrib non-free" \
+    --bootappend-live " \
+        boot=live \
+        live-config.locales=ja_JP.UTF-8 \
+        live-config.timezone=Asia/Tokyo \
+        live-config.keyboard-model=jp106 \
+        live-config.keyboard-layouts=jp \
+        " \
+    --iso-volume "DebianLive" \
+    --security false \
+	"${@}"
+
+#PCでbootスタートしないので除外
+#    --bootloaders "grub-efi" \
+
+cd $(dirname $0)
+
+#####install packages
+
+#desktop
+echo task-xfce-desktop > ../config/package-lists/01desktop.list.chroot
+
+#localize
+echo " \
+    task-japanese \
+    task-japanese-desktop \
+" > ../config/package-lists/11localize.list.chroot
+
+#refer xubuntu
+echo " \
+    mate-calc \
+ " > ../config/package-lists/21refer-xubntu.list.chroot
+
+#live tool
+echo " \
+    dctrl-tools \
+    live-build \
+    syslinux-utils \
+ " > ../config/package-lists/31live-build.list.chroot
+
+#user setting
+echo " \
+    at \
+    bash-completion \
+    clamav \
+    clamdscan \
+    curl \
+    dnsutils \
+    geany \
+    geany-plugin-addons \
+    geany-plugin-lineoperations \
+    geany-plugin-macro \
+    geany-plugin-miniscript \
+    git \
+    hdparm \
+    html2text \
+    iftop \
+    iproute2 \
+    kazam \
+    lynx \
+    menulibre \
+    net-tools \
+    numlockx \
+    parted \
+    pciutils \
+    swatch \
+    traceroute \
+    tree \
+    vim-gtk \
+    vlc \
+    wget \
+    xinput \
+" > ../config/package-lists/41users.list.chroot
+
+#device driver(non-free)
+echo " \
+    firmware-amd-graphics \
+ " > ../config/package-lists/51device-driver.list.chroot
+
+#####hook
+
+#remove packages
+echo "apt purge -y  \
+    libreoffice \
+    libreoffice-gtk2 \
+    libreoffice-help-en-us \
+    mythes-en-us \
+    orca \
+    parole \
+    quodlibet \
+    synaptic \
+    xfce4-goodies \
+" > ../config/hooks/live/01remove_desktop.hook.chroot
+
+#add packages
+echo "apt install -y  \
+    ristretto \
+    thunar-archive-plugin \
+    thunar-media-tags-plugin \
+    xfburn \
+    xfce4-datetime-plugin \
+    xfce4-dict \
+    xfce4-genmon-plugin \
+    xfce4-mailwatch-plugin \
+    xfce4-netload-plugin \
+    xfce4-notifyd \
+    xfce4-places-plugin \
+    xfce4-screenshooter \
+    xfce4-systemload-plugin \
+    xfce4-terminal \
+    xfce4-verve-plugin \
+    xfce4-wavelan-plugin \
+    xfce4-whiskermenu-plugin \
+    xfce4-xkb-plugin \
+" > ../config/hooks/live/11install_xfce.hook.chroot
+
+
+#if anthy & mozc installed then purge anthy
+echo '
+    if [[ $(apt list --installed |grep ^anthy/testing |wc -l) = 1 ]] ; then 
+        if [[ $(apt list --installed |grep ^uim-mozc/testing |wc -l) = 1 ]] ; then
+            apt purge -y anthy
+        fi
+    fi
+' > ../config/hooks/live/22anthy-purge.hook.chroot
+
+echo "apt autoremove -y  \
+" > ../config/hooks/live/21apt-clean.hook.chroot
+
+echo "apt clean -y  \
+" >> ../config/hooks/live/21apt-clean.hook.chroot
+
+echo "apt install -y  \
+    libreoffice-calc \
+    libreoffice-writer \
+" > ../config/hooks/live/31install_libre.hook.chroot
+
+#skel copy
+mkdir -p ../config/includes.chroot/etc/skel
+rsync -a ./includes/skel/ ../config/includes.chroot/etc/skel/
+
+#exec permission
+echo " \
+    chmod 777 /etc/skel/.xsessionrc \
+        /etc/skel/.profile \
+        /etc/skel/.bashrc \
+        /etc/skel/.bash_aliases; \
+" > ../config/hooks/live/41include_setting.hook.chroot
+
+echo " \
+    find /etc/skel/bin -type f |xargs chmod 777 ; \
+" >> ../config/hooks/live/41include_setting.hook.chroot
+
+#systemctl
+echo " \
+    systemctl stop clamav-freshclam; \
+    systemctl disable clamav-freshclam; \
+" >> ../config/hooks/live/51systemctl.hook.chroot

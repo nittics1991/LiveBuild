@@ -1,0 +1,18 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Geany
+Name[ja]=Geany
+GenericName=Integrated Development Environment
+GenericName[ja]=統合開発環境
+Comment=A fast and lightweight IDE using GTK+
+Comment[ja]=GTK+ を用いた高速で軽量な IDE
+Exec=geany %F
+Icon=geany
+Terminal=false
+Categories=GTK;Development;IDE;
+MimeType=text/plain;text/x-chdr;text/x-csrc;text/x-c++hdr;text/x-c++src;text/x-java;text/x-dsrc;text/x-pascal;text/x-perl;text/x-python;application/x-php;application/x-httpd-php3;application/x-httpd-php4;application/x-httpd-php5;application/xml;text/html;text/css;text/x-sql;text/x-diff;
+StartupNotify=true
+Keywords=Text;Editor;
+Keywords[ja]=Text;Editor;
+X-XFCE-Source=file:///usr/share/applications/geany.desktop

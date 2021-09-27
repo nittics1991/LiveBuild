@@ -1,6 +1,14 @@
 #!/bin/sh
 
-lb clean noauto "${@}"
+for OPT in "$@"
+do
+    case $OPT in
+        --config)
+            rm -r config
+            rm -f build.log
+            exit 0
+            ;;
+    esac
+done            
 
-rm -f config/binary config/bootstrap config/chroot config/common config/source
-rm -f build.log
+lb clean noauto "${@}"
